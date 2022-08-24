@@ -1,0 +1,23 @@
+{
+  "name": "pureyet",
+  "version": "1.0.0",
+  "description": "Polution stats",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "keywords": [
+    "Polution"
+  ],
+  "author": "Akhil Ashokan",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^12.2.5",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "@types/react": "^18.0.17",
+    "typescript": "^4.7.4"
+  }
+}
