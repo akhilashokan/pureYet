@@ -16,7 +16,7 @@ export default function Form() {
     return (
         <>
             <div className="_inputs">
-                <LoadSelect country='in' limit={5} selectedCity={selectedCity} cityChangeHandler={cityChange} dateChangeHandler={dateChange} selectedDate={selectedDate} />
+                <LoadSelect country='in' limit={100} selectedCity={selectedCity} cityChangeHandler={cityChange} dateChangeHandler={dateChange} selectedDate={selectedDate} />
             </div>
             {selectedCity && selectedDate && <Graph selectedCity={selectedCity} selectedDate={selectedDate} />}
         </>
