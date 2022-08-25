@@ -2,7 +2,7 @@ import React from "react";
 import Form from "../components/form";
 export default function App() {
     return <main>
-        <header>
+        <header className="header">
             <h1>is your city pure<strong>Yet</strong>? </h1>
             <p>select your city</p>
         </header>
