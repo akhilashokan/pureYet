@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InfoCard from "./card/infoCard";
+import InfoCard from "./infoCard/infoCard";
 import Graph from "./graph/graph";
 import LoadSelect from "./select";
 
