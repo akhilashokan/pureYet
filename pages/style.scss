@@ -29,10 +29,7 @@ main {
 header {
     margin-block: 2rem;
     font-size: clamp(1rem, 2vw, 4rem);
-
-    p {
-        text-align: center;
-    }
+    text-align: center;
 }
 
 ._inputs {
