@@ -33,6 +33,13 @@ main {
 }
 
 ._inputs {
-    text-align: center;
+    width: fit-content;
+    margin-inline: auto;
+    border-bottom: 1px solid rgba(149, 157, 165, 0.4);
+}
 
+.__card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
