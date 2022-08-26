@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/footer/footer";
 import Form from "../components/form";
 export default function App() {
     return <main>
@@ -11,5 +12,6 @@ export default function App() {
                 <Form />
             </div>
         </section>
+        <Footer />
     </main>
 }

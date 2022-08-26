@@ -20,7 +20,7 @@ export default function Form() {
     return (
         <>
             <div className="_inputs">
-                <LoadSelect country='in' limit={5} selectedCity={selectedCity} cityChangeHandler={cityChange} dateChangeHandler={dateChange} selectedDate={selectedDate} />
+                <LoadSelect country='in' limit={150} selectedCity={selectedCity} cityChangeHandler={cityChange} dateChangeHandler={dateChange} selectedDate={selectedDate} />
             </div>
             {selectedCity && selectedDate && <InfoCard selectedCity={selectedCity} selectedDate={selectedDate} setLocationId={setCity} />}
 
