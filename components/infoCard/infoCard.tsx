@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./infoCard.module.scss"
-export default function InfoCard({ selectedCity, selectedDate }) {
+export default function InfoCard({ selectedCity, selectedDate, setLocationId }) {
     const [measurements, setMeasurements] = useState([{
         "locationId": 0,
         "location": "",
@@ -25,13 +25,15 @@ export default function InfoCard({ selectedCity, selectedDate }) {
         var queryCities = `/measurements?limit=1&page=1&offset=0&sort=desc&radius=1000&country=in&city=${selectedCity}&order_by=datetime`
         fetch('https://api.openaq.org/v2/' + queryCities, options)
             .then(response => response.json())
-            .then(response => setMeasurements(response.results))
+            .then(response => {
+                setMeasurements(response.results)
+                setLocationId(response.results[0].locationId)
+            })
             .catch(err => console.error(err));
-    }, [selectedCity])
+    }, [selectedCity, setLocationId])
+
     let dateObj = new Date(selectedDate)
     let formatedDate = `${dateObj.toDateString()} at ${dateObj.toLocaleTimeString()}`
-    console.log('selectedDate', dateObj.getDate());
-    console.log('measurements', measurements);
 
     return <>
         <div className={`__card ${style.cards}`}>
