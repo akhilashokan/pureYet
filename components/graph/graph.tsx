@@ -68,7 +68,7 @@ function LoadGraph({ data, parameter }) {
     }, [data, parameter])
 
     return (
-        <div>
+        <div className={style.wrapper}>
             {!loading && <h2>loading</h2>}
             <canvas id="line-chart" ref={ref}></canvas>
         </div>
