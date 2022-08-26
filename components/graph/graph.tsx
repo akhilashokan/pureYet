@@ -62,7 +62,6 @@ function LoadGraph({ data, parameter }) {
         };
         var chart = new Chart(ref.current, config);
         chart && setLoading(true)
-        console.log(chart);
         return (() => {
             chart.destroy()
         })
