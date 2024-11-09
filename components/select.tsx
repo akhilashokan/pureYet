@@ -1,36 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import { useActionState } from "react";
+import { getPolutionData } from "../app/actions";
+import Graph from "./Graph";
 
-export default function LoadSelect({ country, limit, cityChangeHandler, selectedCity, dateChangeHandler, selectedDate }) {
-    const [cities, setCities] = useState([{
-        "country": "",
-        "city": "",
-        "count": 0,
-        "locations": 0,
-        "firstUpdated": '',
-        "lastUpdated": '',
-        "parameters": []
-    }])
-    useEffect(() => {
-        const options = { method: 'GET', headers: { Accept: 'application/json' } };
-        var queryCities = `cities?limit=${limit}&page=1&offset=0&sort=asc&country=${country}&order_by=city`
-        fetch('https://api.openaq.org/v2/' + queryCities, options)
-            .then(response => response.json())
-            .then(response => setCities(response.results))
-            .catch(err => console.error(err));
-    }, [limit, country])
+export default function Select({ state }) {
+    const [selected, formAction] = useActionState(getPolutionData, null)
 
+    if (!state) return null;
+    const results = state?.results || [];
+    if (results?.length === 0) return <>no city found</>
 
     return (
         <>
-            <select name="city" id="_city" onChange={cityChangeHandler} >
-                <option value=''>select your city</option>
-                {cities.map((data, key) => {
-                    return (
-                        <option key={key} value={data.city}>{data.city}</option>
-                    )
-                })}
-            </select>
-            {selectedCity && <input type="date" onChange={dateChangeHandler} value={selectedDate} name="date" id="_date" />}
+            <section className="border p-2 flex gap-2 rounded-lg">
+                <p className="text-cyan-50">select your city</p>
+                <form action={formAction}>
+                    <select name="selectedCity">
+                        {results.map((item, index) => {
+                            const value = `${item.latitude},${item.longitude}`
+                            return <option key={index} value={value}>{item?.name} {item.country}</option>
+                        })}
+                    </select>
+                    <input className="ml-2" type="submit" value="get Data" />
+                </form>
+            </section>
+            {selected && <Graph data={selected} />}
         </>
     )
 }

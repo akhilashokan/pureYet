@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import style from "./infoCard.module.scss"
 export default function InfoCard({ selectedCity, selectedDate, setLocationId }) {
     const [measurements, setMeasurements] = useState([{
         "locationId": 0,
@@ -36,29 +35,29 @@ export default function InfoCard({ selectedCity, selectedDate, setLocationId }) 
     let formatedDate = `${dateObj.toDateString()} at ${dateObj.toLocaleTimeString()}`
 
     return <>
-        <div className={`__card ${style.cards}`}>
+        <div >
             {measurements[0].locationId ?
                 measurements.map((data, key) => {
-                    return (<div key={key} className={style.card}>
-                        <header className={style.header}>
+                    return (<div key={key}>
+                        <header >
                             <h2>Info</h2>
-                            <div className={style.info}>
+                            <div >
                                 <div>
                                     <h3>{data.city}</h3>
                                     <p>ID: {data.locationId}</p>
                                 </div>
-                                <div className={style.cords}>
+                                <div >
                                     <h3>Coordinates</h3>
                                     <p>lat:{data.coordinates.latitude}</p>
                                     <p>long:{data.coordinates.longitude}</p>
                                 </div>
                             </div>
                         </header>
-                        <div className={style.measurements}>
+                        <div >
                             <h2>Measurements</h2>
-                            <div className={style.measurement}>
-                                <div className={style.block}>
-                                    <div className={style.measure}>
+                            <div >
+                                <div >
+                                    <div >
                                         <h3>{data.parameter}</h3>
                                         <p>{data.value} <small>{data.unit}</small></p>
                                     </div>
