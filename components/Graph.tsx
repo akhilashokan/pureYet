@@ -1,4 +1,6 @@
-import ReactApexChart from "react-apexcharts"
+'use client'
+import dynamic from "next/dynamic";
+const ReactApexChart = dynamic(() => import("react-apexcharts"), { ssr: false }); // window not found fix | https://medium.com/@farrel.abyansyah/how-to-use-apexcharts-in-a-next-js-project-96e413bc9b31
 
 export default function Graph({ data }) {
     console.log(data);
