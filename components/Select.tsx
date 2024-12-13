@@ -1,6 +1,6 @@
 import { useActionState } from "react";
 import { getPolutionData } from "../app/actions";
-import Graph from "./Graph";
+import Result from "./Result";
 
 export default function Select({ state }) {
     const [selected, formAction] = useActionState(getPolutionData, null)
@@ -11,19 +11,19 @@ export default function Select({ state }) {
 
     return (
         <>
-            <section className="border p-2 flex gap-2 rounded-lg">
-                <p className="text-cyan-50">select your city</p>
-                <form action={formAction}>
-                    <select name="selectedCity">
+            <section className="border p-2 flex gap-2 rounded-lg justify-center">
+                <p> please select your city</p>
+                <form action={formAction} className="flex  justify-center">
+                    <select name="selectedCity" className="dark:bg-slate-500 outline-none rounded-l-lg h-full focus:rounded-b-none px-2">
                         {results.map((item, index) => {
                             const value = `${item.latitude},${item.longitude}`
                             return <option key={index} value={value}>{item?.name} {item.country}</option>
                         })}
                     </select>
-                    <input className="ml-2" type="submit" value="get Data" />
+                    <input className="px-2 dark:bg-slate-400 rounded-r-lg" type="submit" value="get Data" />
                 </form>
             </section>
-            {selected && <Graph data={selected} />}
+            {selected && <Result data={selected} />}
         </>
     )
 }
