@@ -16,8 +16,16 @@ export async function getPolutionData(currentState, formdata: FormData) {
     const cityCords = city?.split(',');
     if (cityCords?.length < 1) return null;
     const [latitude, longitude] = cityCords;
-    const url = `https://air-quality-api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&hourly=pm10,pm2_5`
-    return fetch(url)
+    // latitude=${latitude}&longitude=${longitude}&past_days=5&forecast_days=1
+    const url = `https://air-quality-api.open-meteo.com/v1/air-quality?current=pm10,pm2_5,european_aqi&hourly=pm10,pm2_5,european_aqi`
+    const urlObj = new URL(url);
+    urlObj.searchParams.append('latitude', latitude);
+    urlObj.searchParams.append('longitude', longitude);
+    urlObj.searchParams.append('past_days', '5');
+    urlObj.searchParams.append('forecast_days', '1');
+    const fetchUrl = urlObj.toString();
+
+    return fetch(fetchUrl)
         .then(res => res.json())
         .then(res => res)
         .catch(err => err)
