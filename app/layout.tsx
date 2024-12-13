@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Footer from "../components/footer";
 
 
 export const metadata: Metadata = {
@@ -14,8 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="flex flex-col min-h-screen justify-between  min-w-full">
         {children}
+        <Footer />
       </body>
     </html>
   );
