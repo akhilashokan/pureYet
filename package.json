@@ -1,8 +1,7 @@
 {
   "name": "pureyet",
-  "version": "1.0.0",
-  "description": "Polution stats",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Air polution at a glance.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
