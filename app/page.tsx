@@ -9,9 +9,9 @@ export default function Home() {
     const stateSelected = state?.city !== '';
 
     return (
-        <main className="flex flex-1">
+        <main className="flex flex-1 pt-2">
             <p className="fixed top-0 right-0 text-2xl">WIP</p>
-            <div className="m-auto max-w-[95%] mt-5">
+            <div className="m-auto max-w-[95%]">
                 <header className="mb-2">
                     <h1 className="text-7xl text-center">is your city pure<strong>Yet</strong>? </h1>
                 </header>
